@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>School System</title>
+</head>
+<body onload="populateLists();populateTables()" >
+    <img id="header" src="img/header.png">
+    <br><button type="button" onclick="consoleLog()">Console</button><br>
+    <form>
+        <table id="studentsTeachersTable" width="200">
+            <caption>Add Students or Teachers</caption>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+            <tr>
+                <td><input id="ID" title="ID"></td>
+                <td><input id="FN" title="First Name"></td>
+                <td><input id="LN" title="Last Name"></td>
+            </tr>
+            <tr>
+                <th>Grade (S)</th>
+                <th>Subject (T)</th>
+                <td><button type="button" style="width:100%; height:100%; background-color:lightblue" onclick="addStudent()">Add Student</button></td>
+            </tr>
+            <tr>
+                <th><input id="GRD" title="Grade"></th>
+                <th><input id="SUB" title="Subject"></th>
+                <td><button type="button" style="width:100%; height:100%; background-color:lightgreen" onclick="addTeacher()">Add Teacher</button></td>
+            </tr>
+        </table>
+    </form><br>
+    <form>
+        <table id="sectionsTable">
+            <caption>Add Sections</caption>
+            <tr>
+                <th>Section Name</th>
+                <th>Maximum Size</th>
+                <th>Grade Level</th>
+                <th rowspan="2"><img src="img/add.jpg" style="width:40px;height:40px;" onclick="createSection()"></th>
+            </tr>
+            <tr>
+                <td><input id="SEC" title="Section Name"></td>
+                <td><input id="SIZ" title="Max Size"></td>
+                <td><input id="GRDLVL" title="Grade Level"></td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    <form>
+        <table id="changeTeacherTable">
+            <caption>Change Teacher for Section</caption>
+            <tr>
+                <th width="120px">Section</th>
+                <th width="120px">Teacher</th>
+                <th rowspan="2"><img src="img/change.jpg" style="width:40px;height:40px;" onclick="changeTeacher()"></th>
+            </tr>
+            <tr>
+                <td><select title="sections" id="secListTeach">
+                    <option>--Section--</option>
+                </select></td>
+                <td><select title="teachers" id="teachList">
+                    <option>--Teacher--</option>
+                </select></td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    <form>
+        <table id="addStudentsToSectionTable">
+            <caption>Add/Remove Student to/from Section</caption>
+            <tr>
+                <th width="120px">Section</th>
+                <th width="120px">Student</th>
+                <th rowspan="2"><img src="img/add.jpg" style="width:40px;height:40px;" onclick="addStudentToSection()"></th>
+                <th rowspan="2"><img src="img/minus.jpg" style="width:40px;height:40px;" onclick="removeStudentFromSection()"></th>
+            </tr>
+            <tr>
+                <td><select title="sections" id="secListStu">
+                    <option>--Section--</option>
+                </select></td>
+                <td><select title="students" id="stuList">
+                    <option>--Student--</option>
+                </select></td>
+            </tr>
+        </table>
+    </form><br><br>
+    <table style="display: inline-block;" id="stuTable">
+        <tr>
+            <th width="120px">Students</th>
+        </tr>
+    </table>
+    <table style="display: inline-block;" valign="top" id="teachTable">
+        <tr>
+            <th width="120px">Teachers</th>
+        </tr>
+    </table>
+    <table style="display: inline-block;" valign="top" id="secTable">
+        <tr>
+            <th width="120px">Sections</th>
+        </tr>
+    </table><br>
+    <br>SEARCH STUDENTS (by last name):
+    <input id="search" title="Search">
+    <button type="button" onclick="searchAndPrint()">Search</button><br>
+    <br><div id="sectionDiv" style="display:none"><b>SECTIONS:</b></div>
+    <div id="info"></div>
+</body>
+</html>
